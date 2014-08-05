@@ -1,0 +1,10 @@
+{
+  "name": "rich-console",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "keven-wang",
+  "license": "MIT",  
+  "dependencies": {},  
+  "devDependencies": {},
+  "readmeFilename": "README.md"  
+}
