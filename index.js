@@ -1,7 +1,7 @@
 /**
  * 获得带颜色转义字符的控制台输出模板.
  * @param  {String}tmpl        包含标签的模板字符串
- * @param  {boolean}isBright   是否高亮，default true
+ * @param  {boolean}isBright   是否高亮，default false
  * @return {String}
  * @public
  */
@@ -35,7 +35,7 @@ function getRichTmpl(tmpl, isBright){
             // 若是转义字符之间返回\后面的字符
             if ($1) { return $1.slice(1); }
             
-            // 若是样式开始标记，返回样式开始字符并将样式压栈
+            // 若为不支持的颜色直接忽略，否则返回样式开始字符并将样式压栈
             if ($2) { 
                 var style = ESCAPES[$2];
                 if(style){
@@ -46,10 +46,10 @@ function getRichTmpl(tmpl, isBright){
                 }
             }              
             
-            // 若是样式开始标记，从样式栈中弹出当前样式并返回
+            // 若为不支持的颜色直接忽略，否则从样式栈中弹出当前样式并返回
             // 栈顶样式，若栈为空返回系统默认样式
             if ($3) {
-                if(ESCAPES[$2]){
+                if(ESCAPES[$3]){
                     styleStack.pop();
                     var len = styleStack.length;
                     var topStyle = len > 0 ? styleStack[len - 1] : null;
