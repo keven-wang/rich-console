@@ -6,7 +6,7 @@
  * @public
  */
 function getRichTmpl(tmpl, isBright){
-    if(typeof tmpl == 'object'){ return tmpl; }
+    if(typeof tmpl != 'string'){ return tmpl; }
 
     var fontStyle = isBright == true ? '\u001b[1m' : '';
     var ESCAPES  = {
@@ -80,7 +80,7 @@ function getRichTmpl(tmpl, isBright){
  */
 function output(cont){
     // 若用户输入的是一个object则调用系统的console输出object结构
-    if(typeof cont == 'object'){
+    if(typeof cont != 'string'){
         console.log(cont);
         return;
     }
@@ -97,7 +97,7 @@ function output(cont){
  * @public
  */
 function outputError(cont){
-    if(typeof cont == 'object'){
+    if(typeof cont != 'string'){
         console.log(cont);
     }else{
         var moreArgs = [].slice.call(arguments, 1);

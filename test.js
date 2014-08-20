@@ -1,5 +1,9 @@
 var richConsle = require('./index');
 
+console.log(false);
+console.log([1, 2, 3, 4, 5]);
+console.log(process.argv);
+
 // if you need to output many times, recommend to use getRichTmpl
 var tmp1 = richConsle.getRichTmpl('%s <red>%s</red> <green>%s</green> <cyan>%s</cyan>');
 var tmp2 = richConsle.getRichTmpl('%s <red>%s</red> <green>%s</green> <cyan>%s</cyan>', true);
